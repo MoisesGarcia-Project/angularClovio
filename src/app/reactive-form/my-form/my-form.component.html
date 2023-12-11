@@ -1,0 +1,31 @@
+<!-- my-form.component.html -->
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+  
+      <!-- Mostrar mensajes de error si el campo es inválido -->
+      <div *ngIf="f['name'].hasError('required') && (f['name'].dirty || f['name'].touched)" class="text-danger">
+        Name is required.
+      </div>
+      <div *ngIf="f['name'].hasError('minlength') && (f['name'].dirty || f['name'].touched)" class="text-danger">
+        Name must be at least 3 characters.
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+  
+      <!-- Mostrar mensajes de error si el campo es inválido -->
+      <div *ngIf="f['email'].hasError('required') && (f['email'].dirty || f['email'].touched)" class="text-danger">
+        Email is required.
+      </div>
+      <div *ngIf="f['email'].hasError('email') && (f['email'].dirty || f['email'].touched)" class="text-danger">
+        Invalid email format.
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  

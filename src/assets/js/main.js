@@ -1,0 +1,1 @@
+console.log('Hello welcomen to my app angular this is "main.js"');
